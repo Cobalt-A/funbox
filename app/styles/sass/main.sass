@@ -1,0 +1,240 @@
+@use 'sass:math'
+@use 'sass:color'
+
+@import config
+
+
+.cart
+    background: url("../images/dist/Pattern.png")
+    background-position: center
+    background-size: contain
+    min-height: 100vh
+    position: relative
+    z-index: 10
+    display: flex
+    align-items: center
+
+.cart:after
+    content: ''
+    display: block
+    position: absolute
+    height: 100%
+    width: 100%
+    z-index: 15
+    background: linear-gradient(90deg, #00000075, #00000000,#00000075)
+    top: 0
+    left: 0
+
+
+.cart-title
+    text-align: center
+    padding: 25px 0
+    font-size: 2.25rem
+    font-weight: thin
+    font-family: Exo
+
+
+.cart-container
+    max-width: 1150px
+    width: 100%
+    margin: 0 auto
+    position: relative
+    z-index: 20
+    padding: 35px 15px
+    
+    .cart-row
+        display: flex
+        justify-content: space-between
+
+.cart-product
+    width: 320px
+    color: #666666
+    overflow: hidden
+    font-family: trebuchet ms
+    margin: 0 15px
+    
+    .cart-product-link, .cart-product-link-selected, .cart-product-link-disabled
+        text-decoration: none
+
+    .cart-product-bg
+        background: #fff
+        border: 4px solid #1698D9
+        height: 430px
+        width: 100%
+        position: relative
+        border-bottom-left-radius: 10px
+        border-bottom-right-radius: 10px
+
+    .cart-product-angle
+        height: 50px
+        width: 100%
+        /* fallback */
+        background: -webkit-linear-gradient(315deg, transparent 34px, #1698D9 0px)
+        position: relative
+        background-position: top left
+        background-size: 100% 100%
+        background-repeat: no-repeat
+        z-index: 35
+        border-top-right-radius: 10px
+        
+
+    .cart-product-angle:after
+        content: ''
+        display: block
+        position: absolute
+        top: 4px
+        left: 4px
+        width: calc(100% - 8px)
+        height: 100%
+        background: -webkit-linear-gradient(315deg, transparent 33px, #ffffff 0px)
+        background-position: top left
+        background-size: 100% 100%
+        background-repeat: no-repeat
+        border-top-right-radius: 8px
+
+    .cart-product-upper-title
+        position: absolute
+        z-index: 40
+        color: #666666
+        font-size: 1rem
+        left: 45px
+        top: -30px
+
+    .cart-product-content
+        position: relative
+        height: 100%
+        z-index: 40
+        padding: 0 45px
+        overflow: hidden
+        border-radius: 6px
+
+        .cart-product-title
+            font-size: 3rem
+            color: #000
+            margin: 0
+            font-weight: bold
+
+        .cart-product-subtitle
+            font-size: 1.5rem
+            color: #000
+            margin: 0
+            font-weight: bold
+
+        .cart-product-desc
+            padding-top: 15px
+            font-size: 1rem
+            line-height: 1.2rem
+            color: #666666
+
+        .cart-product-img
+            position: absolute
+            left: -30px
+            bottom: -110px
+
+        .cart-product-mass-icon
+            width: 80px
+            height: 80px
+            border-radius: 100%
+            background: #1698D9
+            position: absolute
+            right: 12px
+            bottom: 12px
+            display: flex
+            justify-content: center
+            align-items: center
+            flex-direction: column
+            color: #fff
+            text-align: center
+            span:first-child
+                text-align: center
+                font-size: 2.625rem
+                line-height: 2.625rem
+            span:last-child
+                font-size: 1.325rem
+                line-height: 1.325rem
+
+    .cart-product-call-to-action-selected
+        color: #fff
+        font-size: 0.8125rem
+        text-decoration: dashed
+        text-align: center
+        margin-top: 15px
+
+    .cart-product-call-to-action
+        color: #fff
+        font-size: 0.8125rem
+        text-decoration: dashed
+        text-align: center
+        margin-top: 15px
+        a
+            color: #1698D9
+            text-decoration: none
+            border-bottom: 1px dashed #1698D9
+
+
+.cart-product-selected
+    .cart-product-bg
+        border: 4px solid #D91667
+
+    .cart-product-angle
+        background: -webkit-linear-gradient(315deg, transparent 34px, #D91667 0px)
+
+    .cart-product-content .cart-product-mass-icon
+        background: #D91667
+
+.cart-product-disabled
+
+    .cart-product-bg
+        border: 4px solid #B3B3B3
+
+    .cart-product-angle
+        background: -webkit-linear-gradient(315deg, transparent 34px, #B3B3B3 0px)
+
+    .cart-product-content .cart-product-mass-icon
+        background: #B3B3B3
+
+    .cart-product-upper-title
+        opacity: 50%
+
+    .cart-product-content
+        opacity: 50%
+
+    .cart-product-call-to-action
+        color: #FFFF66
+
+
+
+
+.cart-product-upper-title-chenged
+    position: absolute
+    z-index: 40
+    color: #D91667
+    font-size: 1rem
+    left: 45px
+    top: -30px
+    display: none
+
+.cart-product-link-hover:hover
+    .cart-product-upper-title
+        display: none
+    .cart-product-upper-title-chenged
+        display: block
+
+.hidden
+    display: none
+
+
+@media (max-width: 1030px)
+    .cart-container .cart-row
+        flex-wrap: wrap
+        align-items: center
+        justify-content: space-around
+
+    .cart-container .cart-row .cart-product
+        margin: 25px 15px
+    
+
+@media (max-width: 380px)
+    html
+        font-size: 14px
+    
